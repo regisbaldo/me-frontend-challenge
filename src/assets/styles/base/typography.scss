@@ -1,0 +1,61 @@
+@use "sass:map";
+
+$font-family-base: 'Roboto', sans-serif;
+
+$font-size-h4: 24px;
+$font-size-h5: 20px;
+$font-size-subtitle: 18px;
+$font-size-body: 14px;
+$font-size-caption: 12px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-h4: 32px;
+$line-height-h5: 28px;
+$line-height-subtitle: 24px;
+$line-height-body: 120%;
+$line-height-caption: 16px;
+
+$typography: (
+  'h4': (
+    size: $font-size-h4,
+    weight: $font-weight-bold,
+    line-height: $line-height-h4
+  ),
+  'h5': (
+    size: $font-size-h5,
+    weight: $font-weight-semibold,
+    line-height: $line-height-h5
+  ),
+  'subtitle': (
+    size: $font-size-subtitle,
+    weight: $font-weight-regular,
+    line-height: $line-height-subtitle
+  ),
+  'body': (
+    size: $font-size-body,
+    weight: $font-weight-semibold,
+    line-height: $line-height-body
+  ),
+  'caption-regular': (
+    size: $font-size-caption,
+    weight: $font-weight-regular,
+    line-height: $line-height-caption
+  ),
+  'badge': (
+    size: $font-size-caption,
+    weight: $font-weight-medium,
+    line-height: $line-height-caption
+  )
+);
+
+@mixin get-typography($styleName) {
+    font-family: $font-family-base;
+
+    font-size: map.get(map.get($typography, $styleName), 'size');
+    font-weight: map.get(map.get($typography, $styleName), 'weight');
+    line-height: map.get(map.get($typography, $styleName), 'line-height');
+}

@@ -1,0 +1,25 @@
+@use "sass:map";
+
+$primary-50: #EDF3FF;
+$primary-500: #1052E0;
+
+$success-500: #1E976C;
+
+$neutral-300: #A3ACB6;
+$neutral-500: #566574;
+$neutral-700: #303E49;
+
+
+$colors: (
+  'primary': (
+    50: $primary-50,
+    500: $primary-500,
+  ),
+  'success': (
+    500: $success-500,
+  )
+);
+
+@function get-color($colorName, $shade) {
+  @return map.get(map.get($colors, $colorName), $shade);
+}
