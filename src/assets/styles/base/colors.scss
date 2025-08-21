@@ -1,5 +1,8 @@
 @use "sass:map";
 
+$base: #FEFEFE;
+$neutral-box-shadow: #00000014;
+
 $primary-50: #EDF3FF;
 $primary-500: #1052E0;
 
@@ -17,7 +20,12 @@ $colors: (
   ),
   'success': (
     500: $success-500,
-  )
+  ),
+  'neutral': (
+    300: $neutral-300,
+    500: $neutral-500,
+    700: $neutral-700,
+  ),
 );
 
 @function get-color($colorName, $shade) {

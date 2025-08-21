@@ -1,13 +1,26 @@
 <template>
   <div class="main-container">
-ss
+    <detail-card
+      title="Card Title"
+      subtitle="Card Subtitle"
+    >
+      <template #extra-title-info>
+        <detail-badge text="#1014898"></detail-badge>
+      </template>
+
+    </detail-card>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import DetailCard from './components/DetailCard.vue';
+import DetailBadge from './components/DetailBadge.vue';
+</script>
 
 <style lang="scss">
 .main-container {
-  background-color: get-color('primary', 50);
+  margin: 30px;
+  background: $base;
+  height: 100vh;
 }
 </style>
