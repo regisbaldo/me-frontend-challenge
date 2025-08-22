@@ -20,5 +20,6 @@ export default defineConfig({
         additionalData: '@use "@/assets/styles/main.scss" as *;'
       }
     }
-  }
+  },
+  assetsInclude: ['**/*.svg'],
 })
