@@ -40,6 +40,12 @@ defineProps({
   flex-direction: column;
   gap: 20px;
 
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
   & > .header {
     display: flex;
     flex-direction: column;
