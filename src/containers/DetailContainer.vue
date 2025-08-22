@@ -2,20 +2,7 @@
   <div class="detail-container">
     <detail-header-info />
 
-    <detail-card
-      title="Card Title"
-      subtitle="Card Subtitle"
-    >
-      <template #extra-title-info>
-        <detail-badge text="#1014898"></detail-badge>
-      </template>
-
-    </detail-card>
-
-        <detail-card
-      title="Card Titasdsadasle"
-      subtitle="Card Subtitle"
-    >
+    <detail-card title="Card Title" subtitle="Card Subtitle">
       <template #extra-title-info>
         <detail-badge text="#1014898"></detail-badge>
       </template>

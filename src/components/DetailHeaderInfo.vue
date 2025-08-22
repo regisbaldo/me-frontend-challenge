@@ -13,33 +13,29 @@
         <div class="contact-section">
           <span></span>
         </div>
-
       </div>
       <div class="price-wrapper">
         <span class="price">20000</span>
         <span class="status">Need do confirm</span>
         <div class="created-at">
-          <span >Created at 2020-04-16 at 15:32:55</span>
+          <span>Created at 2020-04-16 at 15:32:55</span>
 
-          <detail-icon
-            name="circle-info"
-          />
+          <detail-icon name="circle-info" />
         </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <script setup>
 import { defineProps } from 'vue';
-import DetailIcon from '@/components/DetailIcon.vue'
+import DetailIcon from '@/components/DetailIcon.vue';
 
 defineProps({
   text: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 </script>
 
@@ -47,7 +43,7 @@ defineProps({
 .overview-wrapper {
   display: grid;
   grid-template-columns: 200px 1fr;
-  gap:20px;
+  gap: 20px;
 
   & > .pre-order-container {
     display: flex;
@@ -72,8 +68,8 @@ defineProps({
     }
   }
 
-  & > .body-info-container{
-    display:flex;
+  & > .body-info-container {
+    display: flex;
     justify-content: space-between;
 
     & > .contact-wrapper {
@@ -82,30 +78,28 @@ defineProps({
         color: get-color('neutral', 700);
       }
     }
-      & > .price-wrapper {
-        display:flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap:5px;
+    & > .price-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
 
-        & > .price {
-          @include get-typography('h5');
-          color: get-color('neutral', 500);
-        }
-        & > .status {
-          @include get-typography('h5');
-          color: get-color('success', 500);
-        }
-        & > .created-at {
-          display: flex;
-          gap:5px;
-          align-items: center;
-          @include get-typography('caption');
-          color: get-color('neutral', 700);
-        }
+      & > .price {
+        @include get-typography('h5');
+        color: get-color('neutral', 500);
       }
+      & > .status {
+        @include get-typography('h5');
+        color: get-color('success', 500);
+      }
+      & > .created-at {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        @include get-typography('caption');
+        color: get-color('neutral', 700);
+      }
+    }
   }
 }
 </style>
-
-

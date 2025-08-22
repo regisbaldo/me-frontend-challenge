@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 
 $font-family-base: 'Roboto', sans-serif;
 
@@ -53,9 +53,9 @@ $typography: (
 );
 
 @mixin get-typography($styleName) {
-    font-family: $font-family-base;
+  font-family: $font-family-base;
 
-    font-size: map.get(map.get($typography, $styleName), 'size');
-    font-weight: map.get(map.get($typography, $styleName), 'weight');
-    line-height: map.get(map.get($typography, $styleName), 'line-height');
+  font-size: map.get(map.get($typography, $styleName), 'size');
+  font-weight: map.get(map.get($typography, $styleName), 'weight');
+  line-height: map.get(map.get($typography, $styleName), 'line-height');
 }

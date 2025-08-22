@@ -1,14 +1,6 @@
 <template>
-  <svg
-    :width="size"
-    :height="size"
-    viewBox="0 0 14 14"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      :d="path"
-      :fill="color"
-    />
+  <svg :width="size" :height="size" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+    <path :d="path" :fill="color" />
   </svg>
 </template>
 
@@ -33,10 +25,10 @@ const props = defineProps({
 const path = ref('');
 
 onMounted(async () => {
-    const svg = await import(`@/assets/icons/${props.name}.svg?raw`);
-    const match = svg.default.match(/d="([^"]+)"/);
-    if (match) {
-      path.value = match[1];
-    }
+  const svg = await import(`@/assets/icons/${props.name}.svg?raw`);
+  const match = svg.default.match(/d="([^"]+)"/);
+  if (match) {
+    path.value = match[1];
+  }
 });
 </script>

@@ -1,10 +1,10 @@
 <template>
   <div class="card-wrapper">
     <div class="header">
-      <p class="subtitle" v-if="subtitle"> {{ subtitle }} </p>
+      <p class="subtitle" v-if="subtitle">{{ subtitle }}</p>
 
       <div class="title-container">
-        <p class="title" v-if="title"> {{ title }}</p>
+        <p class="title" v-if="title">{{ title }}</p>
         <slot name="extra-title-info"></slot>
       </div>
     </div>
@@ -21,13 +21,13 @@ import { defineProps } from 'vue';
 defineProps({
   title: {
     type: String,
-    default: '',
+    default: ''
   },
 
   subtitle: {
     type: String,
-    default: '',
-  },
+    default: ''
+  }
 });
 </script>
 
