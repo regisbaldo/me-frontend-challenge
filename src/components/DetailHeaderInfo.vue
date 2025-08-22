@@ -10,8 +10,11 @@
       <div class="contact-wrapper">
         <span class="buyer">MTP West Buyer</span>
 
-        <div class="contact-section">
-          <span></span>
+        <detail-item-info class="contact-name" text="Jacksonville Group (Jason Burn)" icon="user" />
+        <div class="infos">
+          <detail-item-info text="Jacksonville Group (Jason Burn)" icon="user" />
+          <detail-item-info text="Jacksonville Group (Jason Burn)" icon="user" />
+          <detail-item-info text="Jacksonville Group (Jason Burn)" icon="user" />
         </div>
       </div>
       <div class="price-wrapper">
@@ -30,6 +33,7 @@
 <script setup>
 import { defineProps } from 'vue';
 import DetailIcon from '@/components/DetailIcon.vue';
+import DetailItemInfo from './DetailItemInfo.vue';
 
 defineProps({
   text: {
@@ -48,12 +52,13 @@ defineProps({
   & > .pre-order-container {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 2px;
     background: get-color('primary', 500);
     color: $white;
     padding: 20px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
+    max-height: 115px;
 
     & > .pre-order {
       @include get-typography('subtitle');
@@ -76,13 +81,48 @@ defineProps({
       & > .buyer {
         @include get-typography('h5');
         color: get-color('neutral', 700);
+        display: block;
+        padding-bottom: 15px;
+      }
+
+      & > .contact-name {
+        padding-bottom: 5px;
+      }
+
+      & > .infos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 5px;
+        column-gap: 20px;
+        align-items: start;
+
+        & > * {
+          word-break: break-word;
+          min-height: 100%;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        & > .infos {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        & > .infos {
+          grid-template-columns: 1fr;
+        }
       }
     }
+
     & > .price-wrapper {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       gap: 5px;
+      text-align: right;
 
       & > .price {
         @include get-typography('h5');
