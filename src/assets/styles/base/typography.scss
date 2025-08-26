@@ -4,6 +4,7 @@ $font-family-base: 'Roboto', sans-serif;
 
 $font-size-h4: 24px;
 $font-size-h5: 20px;
+$font-size-h6: 16px;
 $font-size-subtitle: 18px;
 $font-size-body: 14px;
 $font-size-caption: 12px;
@@ -15,6 +16,7 @@ $font-weight-bold: 700;
 
 $line-height-h4: 32px;
 $line-height-h5: 28px;
+$line-height-h6: 20px;
 $line-height-subtitle: 24px;
 $line-height-body: 120%;
 $line-height-caption: 16px;
@@ -29,6 +31,11 @@ $typography: (
     size: $font-size-h5,
     weight: $font-weight-semibold,
     line-height: $line-height-h5
+  ),
+  'h6': (
+    size: $font-size-h6,
+    weight: $font-weight-semibold,
+    line-height: $line-height-h6
   ),
   'subtitle': (
     size: $font-size-subtitle,
