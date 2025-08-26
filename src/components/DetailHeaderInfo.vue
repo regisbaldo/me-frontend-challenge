@@ -92,6 +92,7 @@ defineProps({
 
     @media (max-width: 480px) {
       flex-direction: row;
+      padding: 0px 5px;
     }
 
     & > .contact-wrapper {

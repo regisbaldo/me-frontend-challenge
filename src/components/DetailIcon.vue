@@ -3,7 +3,7 @@
     class="detail-icon-container"
     :width="size"
     :height="size"
-    viewBox="0 0 14 14"
+    :viewBox="viewBox"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path :d="path" :fill="color" />
@@ -21,6 +21,10 @@ const props = defineProps({
   size: {
     type: [Number, String],
     default: 14
+  },
+  viewBox: {
+    type: String,
+    default: '0 0 14 14'
   },
   color: {
     type: String,
