@@ -12,9 +12,9 @@
 
         <detail-item-info class="contact-name" text="Jacksonville Group (Jason Burn)" icon="user" />
         <div class="infos">
-          <detail-item-info text="Jacksonville Group (Jason Burn)" icon="user" />
-          <detail-item-info text="Jacksonville Group (Jason Burn)" icon="user" />
-          <detail-item-info text="Jacksonville Group (Jason Burn)" icon="user" />
+          <detail-item-info text="jacksonvillegroup@me.com" icon="light-envelope" />
+          <detail-item-info text="903-575-3050" icon="light-phone" />
+          <detail-item-info text="903-575-3050" icon="light-fax" />
         </div>
       </div>
       <div class="price-wrapper">
@@ -49,6 +49,10 @@ defineProps({
   grid-template-columns: 200px 1fr;
   gap: 20px;
 
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+
   & > .pre-order-container {
     display: flex;
     flex-direction: column;
@@ -59,6 +63,10 @@ defineProps({
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     max-height: 115px;
+
+    @media (max-width: 480px) {
+      border-radius: 8px;
+    }
 
     & > .pre-order {
       @include get-typography('subtitle');
@@ -77,6 +85,15 @@ defineProps({
     display: flex;
     justify-content: space-between;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: row;
+    }
+
     & > .contact-wrapper {
       & > .buyer {
         @include get-typography('h5');
@@ -91,7 +108,7 @@ defineProps({
 
       & > .infos {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, auto);
         row-gap: 5px;
         column-gap: 20px;
         align-items: start;
@@ -106,13 +123,13 @@ defineProps({
 
       @media (max-width: 768px) {
         & > .infos {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(2, auto);
         }
       }
 
       @media (max-width: 480px) {
         & > .infos {
-          grid-template-columns: 1fr;
+          grid-template-columns: auto;
         }
       }
     }
@@ -123,6 +140,11 @@ defineProps({
       align-items: flex-end;
       gap: 5px;
       text-align: right;
+
+      @media (max-width: 768px) {
+        align-items: start;
+        text-align: left;
+      }
 
       & > .price {
         @include get-typography('h5');

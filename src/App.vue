@@ -13,5 +13,13 @@ import DetailContainer from './containers/DetailContainer.vue';
   margin: 25px;
   background: $base;
   height: 100vh;
+
+  @media (max-width: 768px) {
+    margin: 15px;
+  }
+
+  @media (max-width: 480px) {
+    margin: 5px;
+  }
 }
 </style>
