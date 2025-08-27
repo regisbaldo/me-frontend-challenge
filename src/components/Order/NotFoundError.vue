@@ -12,13 +12,21 @@
 <script setup></script>
 
 <style lang="scss">
+@use 'sass:color';
+
 .me-error-page-container {
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 10;
 
   & > .wrapper {
     display: flex;
@@ -56,7 +64,7 @@
       @include get-typography('subtitle');
 
       &:hover {
-        background-color: darken(get-color('primary', 500), 10%);
+        background-color: color.adjust(get-color('primary', 500), $lightness: -10%);
         transition: background-color 0.3s ease-in-out;
       }
     }

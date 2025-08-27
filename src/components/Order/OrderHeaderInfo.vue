@@ -11,9 +11,9 @@
 
       <order-item-info class="contact-name" :text="info?.contact?.name" icon="light-user" />
       <div class="infos">
-        <order-item-info :text="info?.contact?.email" icon="light-envelope" />
-        <order-item-info :text="info?.contact?.phone" icon="light-phone" />
-        <order-item-info :text="info?.contact?.fax" icon="light-fax" />
+        <order-item-info :text="info?.contact?.email" icon="light-envelope" type="email" />
+        <order-item-info :text="info?.contact?.phone" icon="light-phone" type="phone" />
+        <order-item-info :text="info?.contact?.fax" icon="light-fax" type="phone" />
       </div>
     </div>
     <div class="price-wrapper">
@@ -72,7 +72,6 @@ const formattedDate = computed(() => {
     padding: 16px;
     border-radius: 0px 8px 8px 0px;
 
-    width: 200px;
     height: 110px;
 
     @include breakpoint-to('mobile') {

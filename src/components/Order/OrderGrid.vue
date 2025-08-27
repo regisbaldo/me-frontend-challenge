@@ -2,7 +2,7 @@
   <div class="grid-wrapper">
     <div v-for="(column, columnIndex) in columns" :key="columnIndex" class="grid-column">
       <div v-for="(item, itemIndex) in column.items" :key="itemIndex" class="grid-item">
-        <order-item-info :text="item.text" :icon="item.icon" />
+        <order-item-info :text="item.text" :icon="item.icon" :type="item.type" />
       </div>
     </div>
   </div>

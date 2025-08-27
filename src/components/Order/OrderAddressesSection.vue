@@ -54,15 +54,18 @@ const items = computed(() => {
           items: [
             {
               icon: 'light-envelope',
-              text: address.contact?.email
+              text: address.contact?.email,
+              type: 'email'
             },
             {
               icon: 'light-phone',
-              text: address.contact?.phone
+              text: address.contact?.phone,
+              type: 'phone'
             },
             {
               icon: 'light-fax',
-              text: address.contact?.fax
+              text: address.contact?.fax,
+              type: 'phone'
             }
           ]
         }

@@ -48,19 +48,24 @@ const columns = computed(() => {
       items: [
         {
           icon: 'light-envelope',
-          text: props.info?.contact?.email || ''
+          text: props.info?.contact?.email || '',
+          type: 'email'
         },
         {
           icon: 'light-phone',
-          text: props.info?.contact?.phone || ''
+          text: props.info?.contact?.phone || '',
+          type: 'phone'
         },
         {
           icon: 'light-fax',
-          text: props.info?.contact?.fax || ''
+          text: props.info?.contact?.fax || '',
+          type: 'phone'
         },
         {
           icon: 'light-eye',
-          text: props.info?.readAt ? dayjs(props.info.readAt).format('YYYY-MM-DD [at] HH:mm:ss') : ''
+          text: props.info?.readAt
+            ? dayjs(props.info.readAt).format('YYYY-MM-DD [at] HH:mm:ss')
+            : ''
         }
       ]
     }
