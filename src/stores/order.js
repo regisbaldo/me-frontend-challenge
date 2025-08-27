@@ -12,8 +12,6 @@ export const useOrderStore = defineStore('order', () => {
     error.value = null
 
     const [err, data] = await getOrder(id)
-    console.log(err, data, order.value);
-
     if (!err) order.value = data
 
     error.value = err
