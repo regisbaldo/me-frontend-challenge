@@ -9,11 +9,11 @@
     <div class="contact-wrapper">
       <span class="buyer">{{ info?.buyer }}</span>
 
-      <detail-item-info class="contact-name" :text="info?.contact?.name" icon="light-user" />
+      <order-item-info class="contact-name" :text="info?.contact?.name" icon="light-user" />
       <div class="infos">
-        <detail-item-info :text="info?.contact?.email" icon="light-envelope" />
-        <detail-item-info :text="info?.contact?.phone" icon="light-phone" />
-        <detail-item-info :text="info?.contact?.fax" icon="light-fax" />
+        <order-item-info :text="info?.contact?.email" icon="light-envelope" />
+        <order-item-info :text="info?.contact?.phone" icon="light-phone" />
+        <order-item-info :text="info?.contact?.fax" icon="light-fax" />
       </div>
     </div>
     <div class="price-wrapper">
@@ -22,7 +22,7 @@
       <div class="created-at">
         <span>Created at {{ formattedDate }}</span>
 
-        <detail-icon name="circle-info" />
+        <order-icon name="circle-info" />
       </div>
     </div>
   </div>
@@ -30,8 +30,8 @@
 
 <script setup>
 import { defineProps, computed } from 'vue'
-import DetailIcon from '@/components/Order/OrderIcon.vue'
-import DetailItemInfo from './OrderItemInfo.vue'
+import OrderIcon from '@/components/Order/OrderIcon.vue'
+import OrderItemInfo from './OrderItemInfo.vue'
 import dayjs from 'dayjs'
 
 const props = defineProps({

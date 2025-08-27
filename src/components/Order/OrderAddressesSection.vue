@@ -1,28 +1,28 @@
 <template>
-  <detail-collapser class="addresses-section-container" text="Addresses">
-    <detail-card
+  <order-collapser class="addresses-section-container" text="Addresses">
+    <order-card
       v-for="(address, index) in items"
       :key="index"
       :title="address.title"
       :subtitle="address.subtitle"
     >
       <template #extra-title-info v-if="address.code">
-        <detail-badge :text="`#${address.code}`"></detail-badge>
+        <order-badge :text="`#${address.code}`"></order-badge>
       </template>
 
       <template #body>
-        <detail-grid :columns="address.columns" />
+        <order-grid :columns="address.columns" />
       </template>
-    </detail-card>
-  </detail-collapser>
+    </order-card>
+  </order-collapser>
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import DetailCollapser from '@/components/Order/OrderCollapser.vue'
-import DetailCard from '@/components/common/MeCard.vue'
-import DetailGrid from '@/components/Order/OrderGrid.vue'
-import DetailBadge from '@/components/Order/OrderBadge.vue'
+import OrderCollapser from '@/components/Order/OrderCollapser.vue'
+import OrderCard from '@/components/common/MeCard.vue'
+import OrderGrid from '@/components/Order/OrderGrid.vue'
+import OrderBadge from '@/components/Order/OrderBadge.vue'
 
 const props = defineProps({
   info: {

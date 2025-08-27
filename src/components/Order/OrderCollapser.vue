@@ -1,7 +1,7 @@
 <template>
   <div class="collapser-wrapper">
     <button class="collapser-header" @click="toggle" :aria-expanded="isOpen">
-      <detail-icon
+      <order-icon
         name="chevron"
         class="icon"
         color="#1052e0"
@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref, onMounted, watch, onUnmounted } from 'vue'
-import DetailIcon from './OrderIcon.vue'
+import OrderIcon from './OrderIcon.vue'
 import { defineProps } from 'vue'
 
 defineProps({

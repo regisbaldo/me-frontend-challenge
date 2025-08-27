@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="detail-icon-container"
+    class="order-icon-container"
     :width="size"
     :height="size"
     :viewBox="viewBox"
@@ -44,7 +44,7 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
-.detail-icon-container {
+.order-icon-container {
   min-width: v-bind(size + 'px');
   min-height: v-bind(size + 'px');
   flex-shrink: 0;

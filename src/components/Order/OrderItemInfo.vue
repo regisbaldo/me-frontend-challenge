@@ -1,13 +1,13 @@
 <template>
   <div class="item-info-container">
-    <detail-icon v-if="icon" :name="icon" color="#566574" />
+    <order-icon v-if="icon" :name="icon" color="#566574" />
     <span class="text"> {{ text }} </span>
   </div>
 </template>
 
 <script setup>
 import { defineProps } from 'vue'
-import DetailIcon from '@/components/Order/OrderIcon.vue'
+import OrderIcon from '@/components/Order/OrderIcon.vue'
 defineProps({
   icon: {
     type: String,

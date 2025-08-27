@@ -1,5 +1,5 @@
 <template>
-  <div class="detail-container">
+  <div class="order-container">
     <m-e-loader fullscreen v-if="loading" />
 
     <not-found-error v-else-if="error" @refresh="getOrder(orderId)" />
@@ -40,7 +40,7 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
-.detail-container {
+.order-container {
   display: flex;
   flex-direction: column;
   gap: 32px;

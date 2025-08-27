@@ -2,14 +2,14 @@
   <div class="grid-wrapper">
     <div v-for="(column, columnIndex) in columns" :key="columnIndex" class="grid-column">
       <div v-for="(item, itemIndex) in column.items" :key="itemIndex" class="grid-item">
-        <detail-item-info :text="item.text" :icon="item.icon" />
+        <order-item-info :text="item.text" :icon="item.icon" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import DetailItemInfo from './OrderItemInfo.vue'
+import OrderItemInfo from './OrderItemInfo.vue'
 
 defineProps({
   columns: {

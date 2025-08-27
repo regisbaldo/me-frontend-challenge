@@ -1,20 +1,20 @@
 <template>
-  <detail-card :title="info?.name" subtitle="Supplier">
+  <order-card :title="info?.name" subtitle="Supplier">
     <template #extra-title-info>
-      <detail-badge :text="`#${info?.code}`"></detail-badge>
+      <order-badge :text="`#${info?.code}`"></order-badge>
     </template>
 
     <template #body>
-      <detail-grid :columns="columns" />
+      <order-grid :columns="columns" />
     </template>
-  </detail-card>
+  </order-card>
 </template>
 
 <script setup>
 import { defineProps, computed } from 'vue'
-import DetailBadge from '@/components/Order/OrderBadge.vue'
-import DetailCard from '@/components/common/MeCard.vue'
-import DetailGrid from '@/components/Order/OrderGrid.vue'
+import OrderBadge from '@/components/Order/OrderBadge.vue'
+import OrderCard from '@/components/common/MeCard.vue'
+import OrderGrid from '@/components/Order/OrderGrid.vue'
 
 const props = defineProps({
   info: {
