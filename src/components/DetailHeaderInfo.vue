@@ -2,55 +2,64 @@
   <div class="overview-wrapper">
     <div class="pre-order-container">
       <span class="pre-order">Pre-Order</span>
-      <span class="number">4510001114</span>
-      <span class="serial">#ME11223344</span>
+      <span class="number">{{ info?.number }}</span>
+      <span class="serial">#ME{{ info?.serial }}</span>
     </div>
 
-    <div class="body-info-container">
-      <div class="contact-wrapper">
-        <span class="buyer">MTP West Buyer</span>
+    <div class="contact-wrapper">
+      <span class="buyer">{{ info?.buyer }}</span>
 
-        <detail-item-info class="contact-name" text="Jacksonville Group (Jason Burn)" icon="user" />
-        <div class="infos">
-          <detail-item-info text="jacksonvillegroup@me.com" icon="light-envelope" />
-          <detail-item-info text="903-575-3050" icon="light-phone" />
-          <detail-item-info text="903-575-3050" icon="light-fax" />
-        </div>
+      <detail-item-info class="contact-name" :text="info?.contact?.name" icon="user" />
+      <div class="infos">
+        <detail-item-info :text="info?.contact?.email" icon="light-envelope" />
+        <detail-item-info :text="info?.contact?.phone" icon="light-phone" />
+        <detail-item-info :text="info?.contact?.fax" icon="light-fax" />
       </div>
-      <div class="price-wrapper">
-        <span class="price">20000</span>
-        <span class="status">Need do confirm</span>
-        <div class="created-at">
-          <span>Created at 2020-04-16 at 15:32:55</span>
+    </div>
+    <div class="price-wrapper">
+      <span class="price">{{ info?.currency }} {{ info?.price }}</span>
+      <span class="status">{{ info?.status }}</span>
+      <div class="created-at">
+        <span>Created at {{ formattedDate }}</span>
 
-          <detail-icon name="circle-info" />
-        </div>
+        <detail-icon name="circle-info" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-import DetailIcon from '@/components/DetailIcon.vue';
-import DetailItemInfo from './DetailItemInfo.vue';
+import { defineProps, computed } from 'vue'
+import DetailIcon from '@/components/DetailIcon.vue'
+import DetailItemInfo from './DetailItemInfo.vue'
+import dayjs from 'dayjs'
 
-defineProps({
-  text: {
-    type: String,
+const props = defineProps({
+  info: {
+    type: Object,
     required: true
   }
-});
+})
+
+const formattedDate = computed(() => {
+  return !props.info ? '' : dayjs(props.info.createdAt).format('YYYY-MM-DD [at] HH:mm:ss')
+})
 </script>
 
 <style lang="scss">
 .overview-wrapper {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 200px 1fr 220px;
   gap: 20px;
 
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 576px) {
+    grid-template-areas:
+      'pre-order pre-order'
+      'contact price';
   }
 
   & > .pre-order-container {
@@ -64,8 +73,9 @@ defineProps({
     border-bottom-right-radius: 8px;
     max-height: 115px;
 
-    @media (max-width: 480px) {
+    @media (max-width: 576px) {
       border-radius: 8px;
+      grid-area: pre-order;
     }
 
     & > .pre-order {
@@ -81,87 +91,79 @@ defineProps({
     }
   }
 
-  & > .body-info-container {
-    display: flex;
-    justify-content: space-between;
+  & > .contact-wrapper {
+    & > .buyer {
+      @include get-typography('h5');
+      color: get-color('neutral', 700);
+      display: block;
+      padding-bottom: 15px;
+    }
+
+    & > .contact-name {
+      padding-bottom: 5px;
+    }
+
+    & > .infos {
+      max-width: 400px;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      row-gap: 5px;
+      column-gap: 20px;
+      align-items: start;
+
+      & > * {
+        word-break: break-word;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
 
     @media (max-width: 768px) {
-      flex-direction: column;
-      gap: 20px;
+      & > .infos {
+        grid-template-columns: repeat(2, auto);
+      }
     }
 
-    @media (max-width: 480px) {
-      flex-direction: row;
-      padding: 0px 5px;
-    }
-
-    & > .contact-wrapper {
-      & > .buyer {
-        @include get-typography('h5');
-        color: get-color('neutral', 700);
-        display: block;
-        padding-bottom: 15px;
-      }
-
-      & > .contact-name {
-        padding-bottom: 5px;
-      }
+    @media (max-width: 576px) {
+      grid-area: contact;
 
       & > .infos {
-        display: grid;
-        grid-template-columns: repeat(3, auto);
-        row-gap: 5px;
-        column-gap: 20px;
-        align-items: start;
-
-        & > * {
-          word-break: break-word;
-          min-height: 100%;
-          display: flex;
-          align-items: center;
-        }
-      }
-
-      @media (max-width: 768px) {
-        & > .infos {
-          grid-template-columns: repeat(2, auto);
-        }
-      }
-
-      @media (max-width: 480px) {
-        & > .infos {
-          grid-template-columns: auto;
-        }
+        grid-template-columns: auto;
       }
     }
+  }
 
-    & > .price-wrapper {
+  & > .price-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    text-align: right;
+
+    @media (max-width: 768px) {
+      align-items: start;
+      text-align: left;
+    }
+
+    @media (max-width: 576px) {
+      grid-area: price;
+    }
+
+    & > .price {
+      @include get-typography('h5');
+      color: get-color('neutral', 500);
+    }
+    & > .status {
+      @include get-typography('h5');
+      color: get-color('success', 500);
+    }
+    & > .created-at {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
       gap: 5px;
-      text-align: right;
-
-      @media (max-width: 768px) {
-        align-items: start;
-        text-align: left;
-      }
-
-      & > .price {
-        @include get-typography('h5');
-        color: get-color('neutral', 500);
-      }
-      & > .status {
-        @include get-typography('h5');
-        color: get-color('success', 500);
-      }
-      & > .created-at {
-        display: flex;
-        gap: 5px;
-        align-items: center;
-        @include get-typography('caption');
-        color: get-color('neutral', 700);
-      }
+      align-items: center;
+      @include get-typography('caption');
+      color: get-color('neutral', 700);
     }
   }
 }

@@ -7,6 +7,8 @@ $neutral-box-shadow: #00000014;
 $primary-50: #edf3ff;
 $primary-500: #1052e0;
 
+$error-500: #f94444;
+
 $success-500: #1e976c;
 
 $neutral-300: #a3acb6;
@@ -20,6 +22,9 @@ $colors: (
   ),
   'success': (
     500: $success-500
+  ),
+  'error': (
+    500: $error-500
   ),
   'neutral': (
     300: $neutral-300,

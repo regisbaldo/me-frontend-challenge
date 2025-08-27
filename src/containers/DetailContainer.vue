@@ -1,101 +1,42 @@
 <template>
   <div class="detail-container">
-    <detail-header-info />
+    <m-e-loader fullscreen v-if="loading" />
 
-    <detail-card title="Card Title" subtitle="Card Subtitle">
-      <template #extra-title-info>
-        <detail-badge text="#1014898"></detail-badge>
-      </template>
+    <not-found-error v-else-if="error" @refresh="getOrder(orderId)" />
 
-      <template #body>
-        <detail-grid
-          :columns="[
-            {
-              items: [
-                { icon: 'circle-info', text: '123 Main St, Springfield, IL' },
-                {
-                  icon: 'user',
-                  text: 'O Box 1477 - Birmingham AL - 35201-4666 - United States of America'
-                }
-              ]
-            },
-            {
-              items: [
-                { icon: 'user', text: '1301 Glendale Blvd, Los Angeles, CA 90026, USA' },
-                { icon: 'user', text: 'sdsd' }
-              ]
-            }
-          ]"
-        />
-      </template>
-    </detail-card>
+    <template v-else>
+      <detail-header-info v-if="order?.header" :info="order?.header" />
 
-    <detail-collapser class="collapser" text="Addresses">
-      <div class="addresses-cards">
-        <detail-card title="Card Title" subtitle="Card Subtitle">
-          <template #body>
-            <detail-grid
-              :columns="[
-                {
-                  items: [
-                    { icon: 'circle-info', text: '123 Main St, Springfield, IL' },
-                    { icon: 'user', text: 'Home Address' }
-                  ]
-                },
-                {
-                  items: [
-                    { icon: 'user', text: '(123) 456-7890' },
-                    { icon: 'user', text: 'test' }
-                  ]
-                },
-                {
-                  items: [
-                    { icon: 'user', text: '(123) 456-7890' },
-                    { icon: 'user', text: 'test' }
-                  ]
-                }
-              ]"
-            />
-          </template>
-        </detail-card>
+      <detail-supplier-section v-if="order?.supplier" :info="order?.supplier" />
 
-        <detail-card title="Card Title" subtitle="Card Subtitle">
-          <template #body>
-            <detail-grid
-              :columns="[
-                {
-                  items: [
-                    { icon: 'circle-info', text: '1301 Glendale Blvd, Los Angeles, CA 90026, USA' },
-                    { icon: 'user', text: 'Home Address' }
-                  ]
-                }
-              ]"
-            />
-          </template>
-        </detail-card>
-
-        <detail-card title="Card Title" subtitle="Card Subtitle">
-          <template #extra-title-info>
-            <detail-badge text="#1014898"></detail-badge>
-          </template>
-        </detail-card>
-
-        <detail-card title="Card Title" subtitle="Card Subtitle">
-          <template #extra-title-info>
-            <detail-badge text="#1014898"></detail-badge>
-          </template>
-        </detail-card>
-      </div>
-    </detail-collapser>
+      <detail-addresses-section v-if="order?.addresses" :info="order?.addresses" />
+    </template>
   </div>
 </template>
 
 <script setup>
-import DetailHeaderInfo from '../components/DetailHeaderInfo.vue';
-import DetailCard from '../components/DetailCard.vue';
-import DetailBadge from '../components/DetailBadge.vue';
-import DetailCollapser from '../components/DetailCollapser.vue';
-import DetailGrid from '../components/DetailGrid.vue';
+import { onMounted } from 'vue'
+import { useOrderStore } from '@/stores/order'
+import { storeToRefs } from 'pinia'
+
+import DetailHeaderInfo from '../components/DetailHeaderInfo.vue'
+import MELoader from '@/components/common/MELoader.vue'
+import NotFoundError from '@/components/Order/NotFoundError.vue'
+import DetailSupplierSection from '@/components/Order/DetailSupplierSection.vue'
+import DetailAddressesSection from '@/components/Order/DetailAddressesSection.vue'
+
+const orderId = 1
+
+const orderStore = useOrderStore()
+const { order, loading, error } = storeToRefs(orderStore)
+
+const getOrder = async (id) => {
+  await orderStore.getOrderData(id)
+}
+
+onMounted(async () => {
+  await getOrder(orderId)
+})
 </script>
 
 <style lang="scss">
@@ -103,20 +44,6 @@ import DetailGrid from '../components/DetailGrid.vue';
   display: flex;
   flex-direction: column;
   gap: 30px;
-
-  & > .collapser > .collapser-body > .addresses-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    width: 100%;
-
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    @media (min-width: 1200px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
+  height: 100%;
 }
 </style>

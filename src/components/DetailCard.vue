@@ -40,8 +40,8 @@ defineProps({
   flex-direction: column;
   gap: 20px;
 
-  @media (max-width: 480px) {
-    padding: 10px 5px 10px;
+  @media (max-width: 576px) {
+    padding: 15px 5px 15px;
   }
 
   transition: all 0.3s ease-in-out;

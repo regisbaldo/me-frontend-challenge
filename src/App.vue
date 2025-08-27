@@ -18,7 +18,7 @@ import DetailContainer from './containers/DetailContainer.vue'
     padding: 15px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 576px) {
     padding: 5px;
   }
 }
