@@ -39,6 +39,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   gap: 16px;
+  background-color: $white;
 
   transition: all 0.3s ease-in-out;
 

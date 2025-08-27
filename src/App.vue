@@ -11,7 +11,6 @@ import OrderContainer from './containers/OrderContainer.vue'
 <style lang="scss">
 .main-container {
   padding: 24px;
-  background: $base;
   height: 100%;
   max-width: $breakpoint-xlarge;
 
