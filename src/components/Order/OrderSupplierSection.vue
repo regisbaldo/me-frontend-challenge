@@ -15,6 +15,7 @@ import { defineProps, computed } from 'vue'
 import OrderBadge from '@/components/Order/OrderBadge.vue'
 import OrderCard from '@/components/common/MeCard.vue'
 import OrderGrid from '@/components/Order/OrderGrid.vue'
+import dayjs from 'dayjs'
 
 const props = defineProps({
   info: {
@@ -59,7 +60,7 @@ const columns = computed(() => {
         },
         {
           icon: 'light-eye',
-          text: props.info?.readAt
+          text: props.info?.readAt ? dayjs(props.info.readAt).format('YYYY-MM-DD [at] HH:mm:ss') : ''
         }
       ]
     }
