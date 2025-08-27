@@ -7,7 +7,7 @@
 
 <script setup>
 import { defineProps } from 'vue'
-import DetailIcon from '@/components/DetailIcon.vue'
+import DetailIcon from '@/components/Order/OrderIcon.vue'
 defineProps({
   icon: {
     type: String,

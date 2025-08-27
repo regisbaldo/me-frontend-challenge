@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref, onMounted, watch, onUnmounted } from 'vue'
-import DetailIcon from './DetailIcon.vue'
+import DetailIcon from './OrderIcon.vue'
 import { defineProps } from 'vue'
 
 defineProps({

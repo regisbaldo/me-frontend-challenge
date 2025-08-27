@@ -19,10 +19,10 @@
 
 <script setup>
 import { computed } from 'vue'
-import DetailCollapser from '../DetailCollapser.vue'
-import DetailCard from '../DetailCard.vue'
-import DetailGrid from '../DetailGrid.vue'
-import DetailBadge from '../DetailBadge.vue'
+import DetailCollapser from '@/components/Order/OrderCollapser.vue'
+import DetailCard from '@/components/common/MeCard.vue'
+import DetailGrid from '@/components/Order/OrderGrid.vue'
+import DetailBadge from '@/components/Order/OrderBadge.vue'
 
 const props = defineProps({
   info: {

@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import DetailItemInfo from './DetailItemInfo.vue'
+import DetailItemInfo from './OrderItemInfo.vue'
 
 defineProps({
   columns: {

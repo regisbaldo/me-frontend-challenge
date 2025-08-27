@@ -5,11 +5,11 @@
     <not-found-error v-else-if="error" @refresh="getOrder(orderId)" />
 
     <template v-else>
-      <detail-header-info v-if="order?.header" :info="order?.header" />
+      <order-header-info v-if="order?.header" :info="order?.header" />
 
-      <detail-supplier-section v-if="order?.supplier" :info="order?.supplier" />
+      <order-supplier-section v-if="order?.supplier" :info="order?.supplier" />
 
-      <detail-addresses-section v-if="order?.addresses" :info="order?.addresses" />
+      <order-addresses-section v-if="order?.addresses" :info="order?.addresses" />
     </template>
   </div>
 </template>
@@ -19,11 +19,11 @@ import { onMounted } from 'vue'
 import { useOrderStore } from '@/stores/order'
 import { storeToRefs } from 'pinia'
 
-import DetailHeaderInfo from '../components/DetailHeaderInfo.vue'
+import OrderHeaderInfo from '@/components/Order/OrderHeaderInfo.vue'
 import MELoader from '@/components/common/MELoader.vue'
 import NotFoundError from '@/components/Order/NotFoundError.vue'
-import DetailSupplierSection from '@/components/Order/DetailSupplierSection.vue'
-import DetailAddressesSection from '@/components/Order/DetailAddressesSection.vue'
+import OrderSupplierSection from '@/components/Order/OrderSupplierSection.vue'
+import OrderAddressesSection from '@/components/Order/OrderAddressesSection.vue'
 
 const orderId = 1
 

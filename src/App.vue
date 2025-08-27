@@ -1,11 +1,11 @@
 <template>
   <div class="main-container">
-    <detail-container />
+    <order-container />
   </div>
 </template>
 
 <script setup>
-import DetailContainer from './containers/DetailContainer.vue'
+import OrderContainer from './containers/OrderContainer.vue'
 </script>
 
 <style lang="scss">

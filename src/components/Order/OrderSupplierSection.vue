@@ -12,9 +12,9 @@
 
 <script setup>
 import { defineProps, computed } from 'vue'
-import DetailBadge from '../DetailBadge.vue'
-import DetailCard from '../DetailCard.vue'
-import DetailGrid from '../DetailGrid.vue'
+import DetailBadge from '@/components/Order/OrderBadge.vue'
+import DetailCard from '@/components/common/MeCard.vue'
+import DetailGrid from '@/components/Order/OrderGrid.vue'
 
 const props = defineProps({
   info: {

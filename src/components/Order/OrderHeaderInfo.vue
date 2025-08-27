@@ -30,8 +30,8 @@
 
 <script setup>
 import { defineProps, computed } from 'vue'
-import DetailIcon from '@/components/DetailIcon.vue'
-import DetailItemInfo from './DetailItemInfo.vue'
+import DetailIcon from '@/components/Order/OrderIcon.vue'
+import DetailItemInfo from './OrderItemInfo.vue'
 import dayjs from 'dayjs'
 
 const props = defineProps({
