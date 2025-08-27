@@ -16,6 +16,7 @@ Este projeto é uma implementação em Vue.js de uma página de detalhes de pedi
 - [Funcionalidades relevantes](#funcionalidades-relevantes)
 - [Alterações visuais do protótipo](#alterações-visuais-do-protótipo)
 
+<a name="instalação"></a>
 ## 🚀 Instalação
 
 ### Pré-requisitos
@@ -49,6 +50,7 @@ yarn
 cp .env.example .env
 ```
 
+<a name="executando-o-projeto"></a>
 ## 💻 Executando o Projeto
 
 ### Servidor de desenvolvimento
@@ -79,6 +81,7 @@ yarn build
 yarn preview
 ```
 
+<a name="executando-testes"></a>
 ## 🧪 Executando Testes
 
 O projeto usa Cypress para testes de componentes e end-to-end.
@@ -133,6 +136,7 @@ npm test
 yarn test
 ```
 
+<a name="estrutura-do-projeto"></a>
 ## 📁 Estrutura do Projeto
 
 ```
@@ -146,6 +150,7 @@ src/
 └── stores/         # Stores Pinia para gerenciamento de estado
 ```
 
+<a name="tecnologias-utilizadas"></a>
 ## 🛠️ Tecnologias Utilizadas
 
 - **Framework**: [Vue.js 3](https://vuejs.org/) com API de Composição
@@ -160,6 +165,7 @@ src/
   - [ESLint](https://eslint.org/) para linting de código
   - [Prettier](https://prettier.io/) para formatação de código
 
+<a name="funcionalidades-relevantes"></a>
 ## ✨ Funcionalidades relevantes
 
 - **Design Responsivo**: Interface totalmente responsiva desktop, tablet e mobile
@@ -168,6 +174,7 @@ src/
 - **Exibição Dinâmica de Dados**: Dados formatados adequadamente para datas, contatos e endereços (além de linkar redirecionar pros protocolos mailto e tel)
 - **Marcação Semântica**: Estrutura HTML acessível e semântica
 
+<a name="alterações-visuais-do-protótipo"></a>
 ## ✨ Alterações visuais do protótipo
 - Inserido formatação na data de leitura do fornecedor
 - Inserido ancôragem de mailto e tel nos dados de e-mail e telefone
