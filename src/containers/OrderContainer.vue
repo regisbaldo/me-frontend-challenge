@@ -45,5 +45,6 @@ onMounted(async () => {
   flex-direction: column;
   gap: 32px;
   height: 100%;
+  padding-bottom: 150px;
 }
 </style>

@@ -46,10 +46,9 @@ defineProps({
     transform: translateY(-2px);
   }
 
-  @media (max-width: 576px) {
+  @include breakpoint-to('mobile') {
     padding: 12px;
   }
-
 
   & > .header {
     display: flex;

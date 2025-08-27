@@ -52,11 +52,11 @@ const formattedDate = computed(() => {
   grid-template-columns: 200px 1fr 220px;
   gap: 24px;
 
-  @media (max-width: 768px) {
+  @include breakpoint-to('tablet') {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (max-width: 576px) {
+  @include breakpoint-to('mobile') {
     grid-template-areas:
       'pre-order pre-order'
       'contact price';
@@ -75,7 +75,7 @@ const formattedDate = computed(() => {
     width: 200px;
     height: 110px;
 
-    @media (max-width: 576px) {
+    @include breakpoint-to('mobile') {
       border-radius: 8px;
       grid-area: pre-order;
     }
@@ -121,13 +121,13 @@ const formattedDate = computed(() => {
       }
     }
 
-    @media (max-width: 768px) {
+    @include breakpoint-to('tablet') {
       & > .infos {
         grid-template-columns: repeat(2, auto);
       }
     }
 
-    @media (max-width: 576px) {
+    @include breakpoint-to('mobile') {
       grid-area: contact;
 
       & > .infos {
@@ -143,12 +143,12 @@ const formattedDate = computed(() => {
     gap: 4px;
     text-align: right;
 
-    @media (max-width: 768px) {
+    @include breakpoint-to('tablet') {
       align-items: start;
       text-align: left;
     }
 
-    @media (max-width: 576px) {
+    @include breakpoint-to('mobile') {
       grid-area: price;
     }
 

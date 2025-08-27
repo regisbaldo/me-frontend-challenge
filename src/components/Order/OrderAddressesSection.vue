@@ -76,16 +76,12 @@ const items = computed(() => {
 .addresses-section-container {
   & > .collapser-body > .measure {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     width: 100%;
 
-    @media (min-width: 768px) {
+    @include breakpoint-to('tablet') {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    @media (min-width: 1200px) {
-      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

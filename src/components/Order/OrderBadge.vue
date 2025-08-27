@@ -22,7 +22,6 @@ defineProps({
   border-radius: 8px;
   display: flex;
 
-
   & > .text {
     color: get-color('primary', 500);
     @include get-typography('badge');

@@ -12,13 +12,13 @@ import OrderContainer from './containers/OrderContainer.vue'
 .main-container {
   padding: 24px;
   background: $base;
-  height: 100vh;
+  height: 100%;
 
-  @media (max-width: 768px) {
+  @include breakpoint-to('tablet') {
     padding: 15px;
   }
 
-  @media (max-width: 576px) {
+  @include breakpoint-to('mobile') {
     padding: 5px;
   }
 }
