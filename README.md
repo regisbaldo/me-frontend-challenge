@@ -1,68 +1,175 @@
+# Documentação do Projeto
+
 <img src="https://cdn.me.com.br/logos/me_primary.png" alt="ME">
 
-# Front-end Challenge
+# Desafio Front-end
 
-Bem-vindo(a) ao nosso teste para desenvolvedores(as) front-end! 🚀
+Este projeto é uma implementação em Vue.js de uma página de detalhes de pedido, exibindo informações completas sobre um pedido de compra, incluindo detalhes do cabeçalho, informações do fornecedor e endereços de entrega.
 
-Nosso objetivo é avaliar **a qualidade da sua implementação**, considerando organização, boas práticas e clareza de código.
+## 📋 Índice
 
----
+- [Instalação](#instalação)
+- [Executando o Projeto](#executando-o-projeto)
+- [Executando Testes](#executando-testes)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Funcionalidades relevantes](#funcionalidades-relevantes)
+- [Alterações visuais do protótipo](#alterações-visuais-do-protótipo)
 
-## ⚡ O Desafio
+## 🚀 Instalação
 
-Você deverá criar uma **página de detalhes de um processo** seguindo o layout fornecido.
+### Pré-requisitos
+- Node.js (v20.19.0 ou >=22.12.0)
 
-**Layout disponível em:**  
-[Link do Figma](https://www.figma.com/design/Tddaiz626kkBlD4NclUS7m/Front-end-Challenge?node-id=1-4738&m=dev)
+### Usando npm
 
-> Caso tenha dificuldades para acessar o layout, nos avise.
+```bash
+# Clone o repositório
+git clone <url-do-repositório>
+cd me-frontend-challenge
 
-Os dados apresentados pela página deverão ser consumidos através da seguinte API.
+# Instale as dependências
+npm install
 
-> GET https://api.mercadoe.space/orders/1
+# Crie o arquivo .env a partir do exemplo
+cp .env.example .env
+```
 
----
+### Usando yarn
 
-## 📋 Requisitos
+```bash
+# Clone o repositório
+git clone <url-do-repositório>
+cd me-frontend-challenge
 
-### ✅ Obrigatórios
-- **Desenvolvimento utilizando Vue2 ou Vue3**
-- **Documentação no README**
-  - Como instalar e rodar o projeto
-  - Tecnologias utilizadas
-- **Design responsivo**
-  - A página deve se adaptar a diferentes tamanhos de tela
-- **Deploy em cloud**
-  - Publicar o projeto em algum serviço (Vercel, Netlify, Render, etc.)
+# Instale as dependências
+yarn
 
-### 💡 Diferenciais
-- Arquitetura simples e organizada (*Keep it simple!*)
-- Testes unitários e/ou e2e  
-  *(Jest, Vitest, Cypress, Playwright...)*
-- Boas práticas de versionamento e commits claros
-- Explicação de alterações no layout, se houver
+# Crie o arquivo .env a partir do exemplo
+cp .env.example .env
+```
 
----
+## 💻 Executando o Projeto
 
-## 🚀 Entrega
+### Servidor de desenvolvimento
 
-Envie para o(a) recrutador(a):
+#### npm
+```bash
+npm run dev
+```
 
-1. **Link público do projeto rodando em cloud**
-2. **Código-fonte do projeto**, em uma das formas:
-   - Link para repositório público no GitHub  
-   - Fork deste repositório + branch com seu nome + Pull Request  
-   - Link de download do código
+#### yarn
+```bash
+yarn dev
+```
 
----
+A aplicação estará disponível em http://localhost:5173
 
-## 🔎 O que será avaliado
+### Build de produção
 
-| Critério                  | Descrição                                                                 |
-|---------------------------|---------------------------------------------------------------------------|
-| **Organização do código** | Estrutura clara, componentização e boas práticas                          |
-| **Fidelidade ao layout**  | Aderência ao design e responsividade                                      |
-| **Simplicidade**          | Solução fácil de entender e manter                                        |
-| **Testes (opcional)**     | Cobertura e qualidade dos testes unitários e/ou e2e                       |
+#### npm
+```bash
+npm run build
+npm run preview
+```
 
-Boa sorte! 🎉
+#### yarn
+```bash
+yarn build
+yarn preview
+```
+
+## 🧪 Executando Testes
+
+O projeto usa Cypress para testes de componentes e end-to-end.
+
+### Testes de componentes
+
+#### npm
+```bash
+# Executar testes de componentes em modo headless
+npm run test:component
+
+# Executar testes de componentes com interface
+npm run test:component:open
+```
+
+#### yarn
+```bash
+# Executar testes de componentes em modo headless
+yarn test:component
+
+# Executar testes de componentes com interface
+yarn test:component:open
+```
+
+### Testes end-to-end
+
+#### npm
+```bash
+# Executar testes e2e em modo headless
+npm run test:e2e
+
+# Executar testes e2e com interface
+npm run test:e2e:open
+```
+
+#### yarn
+```bash
+# Executar testes e2e em modo headless
+yarn test:e2e
+
+# Executar testes e2e com interface
+yarn test:e2e:open
+```
+
+### Todos os testes
+
+Para executar todos os testes (componentes e e2e) em modo headless:
+
+```bash
+npm test
+# ou
+yarn test
+```
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── assets/         # Ativos estáticos e estilos globais
+├── components/     # Componentes UI reutilizáveis
+│   ├── common/     # Componentes genéricos (cards, loaders)
+│   └── Order/      # Componentes específicos para pedidos
+├── containers/     # Componentes container que conectam aos stores
+├── services/       # Serviços de API
+└── stores/         # Stores Pinia para gerenciamento de estado
+```
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Framework**: [Vue.js 3](https://vuejs.org/) com API de Composição
+- **Ferramenta de Build**: [Vite](https://vitejs.dev/)
+- **Gerenciamento de Estado**: [Pinia](https://pinia.vuejs.org/)
+- **Cliente HTTP**: [Axios](https://axios-http.com/)
+- **Formatação de Datas**: [Day.js](https://day.js.org/)
+- **Pré-processador CSS**: [SASS/SCSS](https://sass-lang.com/)
+- **Testes**:
+  - [Cypress](https://www.cypress.io/) para testes de componentes e E2E
+- **Qualidade de Código**:
+  - [ESLint](https://eslint.org/) para linting de código
+  - [Prettier](https://prettier.io/) para formatação de código
+
+## ✨ Funcionalidades relevantes
+
+- **Design Responsivo**: Interface totalmente responsiva desktop, tablet e mobile
+- **Estados de Carregamento**: Feedback visual durante o carregamento de dados
+- **Tratamento de Erros**: Estados de erro com possibilidade de tentar novamente
+- **Exibição Dinâmica de Dados**: Dados formatados adequadamente para datas, contatos e endereços (além de linkar redirecionar pros protocolos mailto e tel)
+- **Marcação Semântica**: Estrutura HTML acessível e semântica
+
+## ✨ Alterações visuais do protótipo
+- Inserido formatação na data de leitura do fornecedor
+- Inserido ancôragem de mailto e tel nos dados de e-mail e telefone
+- Alterado cor de fundo para ficar um pouco mais amigável ao olhos (e colocado no card a cor branca padrão)
+- Inserido componente de tela de erro (com opção de tentar novamente)
