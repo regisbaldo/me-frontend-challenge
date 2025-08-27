@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import DetailContainer from './containers/DetailContainer.vue';
+import DetailContainer from './containers/DetailContainer.vue'
 </script>
 
 <style lang="scss">

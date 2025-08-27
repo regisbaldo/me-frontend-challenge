@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'
 
 const props = defineProps({
   name: {
@@ -30,17 +30,17 @@ const props = defineProps({
     type: String,
     default: '#A3ACB6'
   }
-});
+})
 
-const path = ref('');
+const path = ref('')
 
 onMounted(async () => {
-  const svg = await import(`@/assets/icons/${props.name}.svg?raw`);
-  const match = svg.default.match(/d="([^"]+)"/);
+  const svg = await import(`@/assets/icons/${props.name}.svg?raw`)
+  const match = svg.default.match(/d="([^"]+)"/)
   if (match) {
-    path.value = match[1];
+    path.value = match[1]
   }
-});
+})
 </script>
 
 <style lang="scss">

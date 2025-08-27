@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import DetailItemInfo from './DetailItemInfo.vue';
+import DetailItemInfo from './DetailItemInfo.vue'
 
 defineProps({
   columns: {
@@ -22,10 +22,10 @@ defineProps({
           column.items.every(
             (item) => typeof item.text === 'string' && (!item.icon || typeof item.icon === 'string')
           )
-      );
+      )
     }
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>

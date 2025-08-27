@@ -22,22 +22,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import DetailIcon from './DetailIcon.vue';
-import { defineProps } from 'vue';
+import { ref } from 'vue'
+import DetailIcon from './DetailIcon.vue'
+import { defineProps } from 'vue'
 
 defineProps({
   text: {
     type: String,
     default: ''
   }
-});
+})
 
-const isOpen = ref(true);
+const isOpen = ref(true)
 
 const toggle = () => {
-  isOpen.value = !isOpen.value;
-};
+  isOpen.value = !isOpen.value
+}
 </script>
 
 <style lang="scss" scoped>

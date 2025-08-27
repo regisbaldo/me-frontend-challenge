@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-import DetailIcon from '@/components/DetailIcon.vue';
+import { defineProps } from 'vue'
+import DetailIcon from '@/components/DetailIcon.vue'
 defineProps({
   icon: {
     type: String,
@@ -15,9 +15,9 @@ defineProps({
   },
   text: {
     type: String,
-    required: true
+    default: '-'
   }
-});
+})
 </script>
 
 <style lang="scss">
