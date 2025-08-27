@@ -1,17 +1,17 @@
 <template>
   <div class="card-wrapper">
-    <div class="header">
+    <header class="header">
       <p class="subtitle" v-if="subtitle">{{ subtitle }}</p>
 
       <div class="title-container">
         <p class="title" v-if="title">{{ title }}</p>
         <slot name="extra-title-info"></slot>
       </div>
-    </div>
+    </header>
 
-    <div class="body" v-if="$slots.body">
+    <section class="body" v-if="$slots.body">
       <slot name="body"></slot>
-    </div>
+    </section>
   </div>
 </template>
 

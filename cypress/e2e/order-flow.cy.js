@@ -2,8 +2,8 @@ describe('Order Flow', () => {
   it('should load order data successfully', () => {
     cy.intercept('GET', '**/orders/*', {
       fixture: 'order.json',
-        headers: {
-          'access-control-allow-origin': '*'
+      headers: {
+        'access-control-allow-origin': '*'
       }
     }).as('getOrder')
 
@@ -17,7 +17,7 @@ describe('Order Flow', () => {
   })
 
   it('should handle error and retry successfully', () => {
-    cy.intercept('GET','**/orders/*', {
+    cy.intercept('GET', '**/orders/*', {
       statusCode: 500,
       body: { error: 'Server Error' }
     })

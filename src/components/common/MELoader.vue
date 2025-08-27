@@ -18,7 +18,7 @@ defineProps({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .me-loader-wrapper {
   display: flex;
   justify-content: center;

@@ -12,4 +12,8 @@ export default defineConfig({
       bundler: "vite",
     },
   },
+    retries: {
+    runMode: 2,
+    openMode: 0
+  }
 });
