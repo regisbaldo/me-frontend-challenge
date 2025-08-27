@@ -1,5 +1,9 @@
 <template>
-  <order-collapser class="addresses-section-container" text="Addresses">
+  <order-collapser
+    class="addresses-section-container"
+    text="Addresses"
+    data-testid="addresses-section"
+  >
     <order-card
       v-for="(address, index) in items"
       :key="index"

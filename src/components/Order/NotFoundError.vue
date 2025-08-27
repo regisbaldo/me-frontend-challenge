@@ -1,10 +1,10 @@
 <template>
-  <div class="me-error-page-container">
+  <div class="me-error-page-container" data-testid="error-page">
     <div class="wrapper">
       <p class="title">Ops, order not found</p>
       <p class="subtitle">Perhaps you can try to refresh the page.</p>
 
-      <button class="button" @click="$emit('refresh')">Retry</button>
+      <button class="button" @click="$emit('refresh')" data-testid="retry-button">Retry</button>
     </div>
   </div>
 </template>

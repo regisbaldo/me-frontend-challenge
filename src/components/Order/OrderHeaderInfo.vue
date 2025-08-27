@@ -7,7 +7,7 @@
     </div>
 
     <div class="contact-wrapper">
-      <span class="buyer">{{ info?.buyer }}</span>
+      <span class="buyer" data-testid="buyer-name">{{ info?.buyer }}</span>
 
       <order-item-info class="contact-name" :text="info?.contact?.name" icon="light-user" />
       <div class="infos">
