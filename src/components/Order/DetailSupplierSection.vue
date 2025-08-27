@@ -38,7 +38,7 @@ const columns = computed(() => {
           text: props.info?.address || ''
         },
         {
-          icon: 'user',
+          icon: 'light-user',
           text: props.info?.contact?.name || ''
         }
       ]

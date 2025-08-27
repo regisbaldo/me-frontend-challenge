@@ -9,7 +9,7 @@
     <div class="contact-wrapper">
       <span class="buyer">{{ info?.buyer }}</span>
 
-      <detail-item-info class="contact-name" :text="info?.contact?.name" icon="user" />
+      <detail-item-info class="contact-name" :text="info?.contact?.name" icon="light-user" />
       <div class="infos">
         <detail-item-info :text="info?.contact?.email" icon="light-envelope" />
         <detail-item-info :text="info?.contact?.phone" icon="light-phone" />
@@ -50,7 +50,7 @@ const formattedDate = computed(() => {
 .overview-wrapper {
   display: grid;
   grid-template-columns: 200px 1fr 220px;
-  gap: 20px;
+  gap: 24px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr 1fr;
@@ -65,13 +65,15 @@ const formattedDate = computed(() => {
   & > .pre-order-container {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    justify-content: center;
+    align-items: flex-start;
     background: get-color('primary', 500);
     color: $white;
-    padding: 20px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    max-height: 115px;
+    padding: 16px;
+    border-radius: 0px 8px 8px 0px;
+
+    width: 200px;
+    height: 110px;
 
     @media (max-width: 576px) {
       border-radius: 8px;
@@ -96,19 +98,19 @@ const formattedDate = computed(() => {
       @include get-typography('h5');
       color: get-color('neutral', 700);
       display: block;
-      padding-bottom: 15px;
+      padding-bottom: 12px;
     }
 
     & > .contact-name {
-      padding-bottom: 5px;
+      padding-bottom: 4px;
     }
 
     & > .infos {
       max-width: 400px;
       display: grid;
       grid-template-columns: repeat(3, auto);
-      row-gap: 5px;
-      column-gap: 20px;
+      row-gap: 4px;
+      column-gap: 16px;
       align-items: start;
 
       & > * {
@@ -138,7 +140,7 @@ const formattedDate = computed(() => {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 5px;
+    gap: 4px;
     text-align: right;
 
     @media (max-width: 768px) {

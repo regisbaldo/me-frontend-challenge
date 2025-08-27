@@ -24,7 +24,7 @@ defineProps({
 .item-info-container {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
 
   & > .text {
     @include get-typography('caption');

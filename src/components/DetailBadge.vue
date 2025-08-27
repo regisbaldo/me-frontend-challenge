@@ -20,6 +20,8 @@ defineProps({
   background: get-color('primary', 50);
   padding: 4px 6px;
   border-radius: 8px;
+  display: flex;
+
 
   & > .text {
     color: get-color('primary', 500);

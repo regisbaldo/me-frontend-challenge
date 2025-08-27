@@ -45,7 +45,7 @@ const items = computed(() => {
               text: address.address
             },
             {
-              icon: 'user',
+              icon: 'light-user',
               text: address.contact?.name
             }
           ]
@@ -74,10 +74,10 @@ const items = computed(() => {
 
 <style lang="scss">
 .addresses-section-container {
-  & > .collapser-body {
+  & > .collapser-body > .measure {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 16px;
     width: 100%;
 
     @media (min-width: 768px) {

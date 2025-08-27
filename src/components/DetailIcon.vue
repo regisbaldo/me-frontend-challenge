@@ -20,11 +20,11 @@ const props = defineProps({
   },
   size: {
     type: [Number, String],
-    default: 14
+    default: 16
   },
   viewBox: {
     type: String,
-    default: '0 0 14 14'
+    default: '0 0 16 16'
   },
   color: {
     type: String,

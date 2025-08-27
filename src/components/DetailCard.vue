@@ -35,14 +35,10 @@ defineProps({
 .card-wrapper {
   box-shadow: 0px 4px 8px 0px $neutral-box-shadow;
   border-radius: 8px;
-  padding: 25px 20px 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-
-  @media (max-width: 576px) {
-    padding: 15px 5px 15px;
-  }
+  gap: 16px;
 
   transition: all 0.3s ease-in-out;
 
@@ -50,10 +46,15 @@ defineProps({
     transform: translateY(-2px);
   }
 
+  @media (max-width: 576px) {
+    padding: 12px;
+  }
+
+
   & > .header {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 2px;
 
     & > .subtitle {
       @include get-typography('caption');
@@ -62,7 +63,7 @@ defineProps({
     & > .title-container {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
 
       & > .title {
         @include get-typography('body');

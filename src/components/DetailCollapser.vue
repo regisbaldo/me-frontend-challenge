@@ -5,8 +5,8 @@
         name="chevron"
         class="icon"
         color="#1052e0"
-        size="12"
-        view-box="0 0 12 7"
+        size="20"
+        view-box="-2 1 16 5"
         :class="{ rotate: isOpen }"
       />
 
@@ -14,15 +14,22 @@
     </button>
 
     <Transition name="collapse">
-      <div v-show="isOpen" class="collapser-body">
-        <slot />
+      <div
+        v-show="isOpen"
+        class="collapser-body"
+        ref="contentRef"
+        :style="{ '--content-height': contentHeight + 'px' }"
+      >
+        <div class="measure" ref="measureRef">
+          <slot />
+        </div>
       </div>
     </Transition>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, watch, onUnmounted } from 'vue'
 import DetailIcon from './DetailIcon.vue'
 import { defineProps } from 'vue'
 
@@ -34,21 +41,52 @@ defineProps({
 })
 
 const isOpen = ref(true)
+const contentRef = ref(null)
+const measureRef = ref(null)
+const contentHeight = ref(0)
+
+const updateHeight = () => {
+  if (measureRef.value) {
+    contentHeight.value = measureRef.value.scrollHeight
+  }
+}
 
 const toggle = () => {
   isOpen.value = !isOpen.value
 }
+
+onMounted(() => {
+  updateHeight()
+  window.addEventListener('resize', updateHeight)
+})
+
+const observer = new ResizeObserver(() => {
+  updateHeight()
+})
+
+watch(measureRef, (el) => {
+  if (el) {
+    observer.observe(el)
+  }
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateHeight)
+  if (measureRef.value) {
+    observer.unobserve(measureRef.value)
+  }
+  observer.disconnect()
+})
 </script>
 
 <style lang="scss" scoped>
 .collapser-wrapper {
   width: 100%;
-  padding-bottom: 10px;
   background: transparent;
 
   & > .collapser-header {
     display: flex;
-    gap: 5px;
+    gap: 8px;
     align-items: center;
     align-content: center;
     background: none;
@@ -73,31 +111,23 @@ const toggle = () => {
   }
 
   & > .collapser-body {
-    padding-top: 20px;
+    padding-top: 16px;
   }
 
   .collapse-enter-active,
   .collapse-leave-active {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    max-height: 300px;
+    transition: max-height 0.3s ease-in-out;
     overflow: hidden;
   }
 
   .collapse-enter-from,
   .collapse-leave-to {
     max-height: 0;
-    padding-top: 0;
   }
 
   .collapse-enter-to,
   .collapse-leave-from {
-    max-height: 300px;
-    padding-top: 20px;
-  }
-
-  .collapser-body {
-    overflow: hidden;
-    transition: padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: var(--content-height);
   }
 }
 </style>

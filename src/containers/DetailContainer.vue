@@ -43,7 +43,7 @@ onMounted(async () => {
 .detail-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
   height: 100%;
 }
 </style>

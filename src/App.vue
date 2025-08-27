@@ -10,7 +10,7 @@ import DetailContainer from './containers/DetailContainer.vue'
 
 <style lang="scss">
 .main-container {
-  padding: 25px;
+  padding: 24px;
   background: $base;
   height: 100vh;
 

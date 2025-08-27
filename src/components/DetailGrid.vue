@@ -32,20 +32,20 @@ defineProps({
 .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  row-gap: 5px;
-  column-gap: 20px;
+  row-gap: 4px;
+  column-gap: 4px;
   width: 100%;
 
   .grid-column {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
   }
 
   .grid-item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
 
     .text {
       @include get-typography('body');
