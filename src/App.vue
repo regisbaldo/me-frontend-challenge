@@ -12,7 +12,6 @@ import OrderContainer from './containers/OrderContainer.vue'
 .main-container {
   padding: 24px;
   height: 100%;
-  max-width: $breakpoint-xlarge;
 
   @include breakpoint-to('tablet') {
     padding: 15px;
