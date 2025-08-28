@@ -1,9 +1,10 @@
 import axios from 'axios'
 
+const isProduction = import.meta.env.PROD
+
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_VUE_API_BASE_URL,
-    headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
+  baseURL: isProduction ? '/api' : import.meta.env.VITE_VUE_API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json'
   }
 })

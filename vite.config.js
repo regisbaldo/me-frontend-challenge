@@ -22,4 +22,13 @@ export default defineConfig({
     }
   },
   assetsInclude: ['**/*.svg'],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.mercadoe.space',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  }
 })
