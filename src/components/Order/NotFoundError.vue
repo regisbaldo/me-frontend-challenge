@@ -1,10 +1,10 @@
 <template>
-  <div class="me-error-page-container" data-testid="error-page">
-    <div class="wrapper">
-      <p class="title">Ops, order not found</p>
-      <p class="subtitle">Perhaps you can try to refresh the page.</p>
+  <div class="me-error-page" data-testid="error-page">
+    <div class="me-error-page__wrapper">
+      <p class="me-error-page__title">Ops, order not found</p>
+      <p class="me-error-page__subtitle">Perhaps you can try to refresh the page.</p>
 
-      <button class="button" @click="$emit('refresh')" data-testid="retry-button">Retry</button>
+      <button class="me-error-page__button" @click="$emit('refresh')" data-testid="retry-button">Retry</button>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 <style lang="scss">
 @use 'sass:color';
 
-.me-error-page-container {
+.me-error-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,7 +28,7 @@
   background: transparent;
   z-index: 10;
 
-  & > .wrapper {
+  &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,20 +40,22 @@
     gap: 20px;
 
     padding: 40px;
+  }
 
-    & > .title {
+
+    &__title {
       @include get-typography('h4');
       color: get-color('error', 500);
       text-transform: uppercase;
     }
 
-    & > .subtitle {
+    &__subtitle {
       @include get-typography('subtitle');
       color: get-color('neutral', 700);
       max-width: 160px;
     }
 
-    & > .button {
+    &__button {
       background-color: get-color('primary', 500);
       color: $white;
       border: none;
@@ -67,7 +69,6 @@
         background-color: color.adjust(get-color('primary', 500), $lightness: -10%);
         transition: background-color 0.3s ease-in-out;
       }
-    }
   }
 }
 </style>

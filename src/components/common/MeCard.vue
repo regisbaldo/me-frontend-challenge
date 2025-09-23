@@ -1,15 +1,15 @@
 <template>
-  <div class="card-wrapper">
-    <header class="header">
-      <p class="subtitle" v-if="subtitle">{{ subtitle }}</p>
+  <div class="me-card">
+    <header class="me-card__header">
+      <p class="me-card__header__subtitle" v-if="subtitle">{{ subtitle }}</p>
 
-      <div class="title-container">
-        <p class="title" v-if="title">{{ title }}</p>
+      <div class="me-card__header__title">
+        <p class="me-card__header__title-text" v-if="title">{{ title }}</p>
         <slot name="extra-title-info"></slot>
       </div>
     </header>
 
-    <section class="body" v-if="$slots.body">
+    <section v-if="$slots.body">
       <slot name="body"></slot>
     </section>
   </div>
@@ -32,7 +32,7 @@ defineProps({
 </script>
 
 <style lang="scss">
-.card-wrapper {
+.me-card {
   box-shadow: 0px 4px 8px 0px $neutral-box-shadow;
   border-radius: 8px;
   padding: 16px;
@@ -51,21 +51,22 @@ defineProps({
     padding: 12px;
   }
 
-  & > .header {
+  &__header {
     display: flex;
     flex-direction: column;
     gap: 2px;
 
-    & > .subtitle {
+    &__subtitle {
       @include get-typography('caption');
       color: get-color('neutral', 500);
     }
-    & > .title-container {
+
+    &__title {
       display: flex;
       align-items: center;
       gap: 8px;
 
-      & > .title {
+      &-text {
         @include get-typography('body');
         color: get-color('neutral', 700);
       }

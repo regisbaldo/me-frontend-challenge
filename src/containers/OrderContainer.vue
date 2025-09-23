@@ -2,7 +2,7 @@
   <div class="order-container">
     <m-e-loader fullscreen v-if="loading" data-testid="loading-spinner" />
 
-    <not-found-error v-else-if="error" @refresh="getOrder(orderId)" />
+    <not-found-error v-else-if="true" @refresh="getOrder(orderId)" />
 
     <template v-else>
       <order-header-info v-if="order?.header" :info="order?.header" />
