@@ -2,7 +2,7 @@
   <div class="order-container">
     <m-e-loader fullscreen v-if="loading" data-testid="loading-spinner" />
 
-    <not-found-error v-else-if="true" @refresh="getOrder(orderId)" />
+    <not-found-error v-else-if="error" @refresh="getOrder(orderId)" />
 
     <template v-else>
       <order-header-info v-if="order?.header" :info="order?.header" />
@@ -16,7 +16,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { useOrderStore } from '@/stores/order'
+import { useOrderStore } from '@/stores/order.ts'
 import { storeToRefs } from 'pinia'
 
 import OrderHeaderInfo from '@/components/Order/OrderHeaderInfo.vue'

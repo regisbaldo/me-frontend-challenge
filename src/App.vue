@@ -4,8 +4,10 @@
   </div>
 </template>
 
-<script setup>
-import OrderContainer from './containers/OrderContainer.vue'
+<script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
+
+const OrderContainer = defineAsyncComponent(() => import('./containers/OrderContainer.vue'))
 </script>
 
 <style lang="scss">

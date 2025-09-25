@@ -21,7 +21,7 @@
   </order-collapser>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 import OrderCollapser from '@/components/Order/OrderCollapser.vue'
 import OrderCard from '@/components/common/MeCard.vue'

@@ -1,13 +1,14 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { getOrder } from '@/services/order'
+import { OrderInterface } from '@/services/OrderInterface'
 
 export const useOrderStore = defineStore('order', () => {
-  const order = ref(null)
-  const loading = ref(false)
-  const error = ref(null)
+  const order = ref<OrderInterface | null>(null)
+  const loading = ref<boolean>(false)
+  const error = ref<boolean | null>(null)
 
-  const getOrderData = async (id) => {
+  const getOrderData = async (id: string) => {
     loading.value = true
     error.value = null
 
@@ -18,6 +19,7 @@ export const useOrderStore = defineStore('order', () => {
     loading.value = false
   }
 
+  order
   return {
     order,
     loading,
