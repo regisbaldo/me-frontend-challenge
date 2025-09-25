@@ -28,15 +28,17 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { defineProps, computed } from 'vue'
 import OrderIcon from '@/components/Order/OrderIcon.vue'
 import OrderItemInfo from './OrderItemInfo.vue'
 import dayjs from 'dayjs'
+import { type OrderHeader } from '@/services/OrderInterface'
+import { PropType } from 'vue'
 
 const props = defineProps({
   info: {
-    type: Object,
+    type: Object as PropType <OrderHeader>,
     required: true
   }
 })

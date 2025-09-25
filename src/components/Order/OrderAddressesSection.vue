@@ -27,10 +27,12 @@ import OrderCollapser from '@/components/Order/OrderCollapser.vue'
 import OrderCard from '@/components/common/MeCard.vue'
 import OrderGrid from '@/components/Order/OrderGrid.vue'
 import OrderBadge from '@/components/Order/OrderBadge.vue'
+import type { Address } from '@/services/OrderInterface'
+import { type PropType } from 'vue'
 
 const props = defineProps({
   info: {
-    type: Array,
+    type: Array as PropType<Address[]>,
     required: true
   }
 })

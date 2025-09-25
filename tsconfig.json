@@ -5,6 +5,16 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "isolatedModules": true,
-    "noEmit": true
-  }
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
 }
